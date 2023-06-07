@@ -4,49 +4,49 @@ import ProductList from './components/ProductList';
 import Cart from './components/Carts';
 import './styles/styles.css';
 
-type Product = {
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
+type Producto = {
+  nombre: string;
+  descripcion: string;
+  precio: number;
+  cantidad: number;
 };
 
 const App = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Producto[]>([]);
   const [cartTotal, setCartTotal] = useState<number>(0);
 
-  const handleAddProduct = (product: Product) => {
+  const handleAddProduct = (product: Producto) => {
     setProducts((prevProducts) => [...prevProducts, product]);
-    calculateCartTotal([...products, product]);
+    calculaCartTotal([...products, product]);
   };
 
-  const handleRemoveProduct = (product: Product) => {
-    setProducts((prevProducts) => prevProducts.filter((p) => p.name !== product.name));
-    calculateCartTotal(products.filter((p) => p.name !== product.name));
+  const handleRemoveProduct = (product: Producto) => {
+    setProducts((prevProducts) => prevProducts.filter((p) => p.nombre !== product.nombre));
+    calculaCartTotal(products.filter((p) => p.nombre !== product.nombre));
   };
 
-  const handleIncrement = (product: Product) => {
+  const handleIncrement = (product: Producto) => {
     setProducts((prevProducts) => {
       const updatedProducts = prevProducts.map((p) =>
-        p.name === product.name ? { ...p, quantity: p.quantity + 1 } : p
+        p.nombre === product.nombre ? { ...p, cantidad: p.cantidad + 1 } : p
       );
-      calculateCartTotal(updatedProducts);
+      calculaCartTotal(updatedProducts);
       return updatedProducts;
     });
   };
 
-  const handleDecrement = (product: Product) => {
+  const handleDecrement = (product: Producto) => {
     setProducts((prevProducts) => {
       const updatedProducts = prevProducts.map((p) =>
-        p.name === product.name && p.quantity > 1 ? { ...p, quantity: p.quantity - 1 } : p
+        p.nombre === product.nombre && p.cantidad > 1 ? { ...p, cantidad: p.cantidad - 1 } : p
       );
-      calculateCartTotal(updatedProducts);
+      calculaCartTotal(updatedProducts);
       return updatedProducts;
     });
   };
 
-  const calculateCartTotal = (updatedProducts: Product[]) => {
-    const total = updatedProducts.reduce((sum, product) => sum + product.price * product.quantity, 0);
+  const calculaCartTotal = (updatedProducts: Producto[]) => {
+    const total = updatedProducts.reduce((sum, product) => sum + product.precio * product.cantidad, 0);
     setCartTotal(total);
   };
 

@@ -1,68 +1,68 @@
 import React, { useState } from 'react';
 
-type Product = {
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
+type Producto = {
+  nombre: string;
+  descripcion: string;
+  precio: number;
+  cantidad: number;
 };
 
 type ProductFormProps = {
-  onAddProduct: (product: Product) => void;
+  onAddProduct: (product: Producto) => void;
 };
 
 const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [descripcion, setDescripcion] = useState('');
+  const [precio, setPrecio] = useState('');
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
+    setNombre(e.target.value);
   };
 
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDescription(e.target.value);
+    setDescripcion(e.target.value);
   };
 
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPrice(e.target.value);
+    setPrecio(e.target.value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (name && price) {
-      const product: Product = {
-        name,
-        description,
-        price: parseFloat(price),
-        quantity: 1, // Inicializamos la cantidad en 1 al agregar el producto
+    if (nombre && precio) {
+      const product: Producto = {
+        nombre: nombre,
+        descripcion: descripcion,
+        precio: parseFloat(precio),
+        cantidad: 1, // Inicializamos la cantidad en 1 al agregar el producto
       };
 
       onAddProduct(product);
 
-      setName('');
-      setDescription('');
-      setPrice('');
+      setNombre('');
+      setDescripcion('');
+      setPrecio('');
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Product</h2>
+      <h2>Agregar Producto</h2>
       <div>
-        <label>Name:</label>
-        <input type="text" value={name} onChange={handleNameChange} required />
+        <label>Nombre:</label>
+        <input type="text" value={nombre} onChange={handleNameChange} required />
       </div>
       <div>
-        <label>Description:</label>
-        <input type="text" value={description} onChange={handleDescriptionChange} />
+        <label>Descripción:</label>
+        <input type="text" value={descripcion} onChange={handleDescriptionChange} />
       </div>
       <div>
-        <label>Price:</label>
-        <input type="number" step="0.01" value={price} onChange={handlePriceChange} required />
+        <label>Precio:</label>
+        <input type="number" step="0.01" value={precio} onChange={handlePriceChange} required />
       </div>
-      <button type="submit" disabled={!name || !price}>
+      <button type="submit" disabled={!nombre || !precio}>
         Agregar
       </button>
     </form>
