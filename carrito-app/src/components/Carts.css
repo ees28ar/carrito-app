@@ -1,0 +1,19 @@
+.cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-icon {
+    width: 20px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: 20px;
+    margin-right: 5px; /* Opcional: Ajusta el margen entre la imagen y el texto */
+  }
+  
+  .cart-total {
+    font-weight: bold; /* Opcional: Aplica un estilo en negrita al texto */
+  }
+  
