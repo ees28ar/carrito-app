@@ -30,6 +30,11 @@
     font-weight: bold;
   }
   
-  .product-price {
+  .product-precio {
     margin-top: 5px;
+  }
+
+  .product-card img {
+    max-width: 100px; 
+    height: auto; 
   }

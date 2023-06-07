@@ -36,7 +36,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
         nombre: nombre,
         descripcion: descripcion,
         precio: parseFloat(precio),
-        cantidad: 1, // Inicializamos la cantidad en 1 al agregar el producto
+        cantidad: 1, 
       };
 
       onAddProduct(product);

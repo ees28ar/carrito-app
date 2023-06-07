@@ -42,6 +42,7 @@ const ProductList: React.FC<ProductListProps> = ({
         <div className="product-grid">
           {products.map((product, index) => (
             <div key={product.nombre} className="product-card">
+              <img src='https://i.postimg.cc/N0GKjf3w/pngwing-com-5.png' alt="Imagen del producto" />
               <h3>{product.nombre}</h3>
               {product.descripcion && <p>{product.descripcion}</p>}
               <p>${product.precio.toFixed(2)}</p>
@@ -60,3 +61,4 @@ const ProductList: React.FC<ProductListProps> = ({
 };
 
 export default ProductList;
+

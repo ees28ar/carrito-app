@@ -8,12 +8,13 @@
   }
   
   .cart-icon {
-    width: 20px; /* Ajusta el tamaño de la imagen según tus necesidades */
-    height: 20px;
-    margin-right: 5px; /* Opcional: Ajusta el margen entre la imagen y el texto */
+    width: 35px; 
+    height: 35px;
+    margin-right: 5px; 
   }
   
   .cart-total {
-    font-weight: bold; /* Opcional: Aplica un estilo en negrita al texto */
+    font-weight: bold;
+    font-size: 25px; 
   }
   
