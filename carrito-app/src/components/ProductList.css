@@ -31,3 +31,18 @@
     margin: 0 5px;
   }
   
+  .blinking-text {
+    animation: blink-animation 1s infinite alternate; /* Animación de destello */
+    color: red; /* Cambia el color del texto a rojo */
+    font-weight: bold; /* Hace el texto negrita */
+  }
+  
+  @keyframes blink-animation {
+    from {
+      opacity: 1; /* Opacidad inicial */
+    }
+    to {
+      opacity: 0; /* Opacidad final */
+    }
+  }
+  

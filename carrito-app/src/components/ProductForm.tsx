@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import "./ProductList.css";
 
 type Producto = {
   nombre: string;
@@ -15,6 +16,14 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
   const [nombre, setNombre] = useState('');
   const [descripcion, setDescripcion] = useState('');
   const [precio, setPrecio] = useState('');
+  const [showBlinking, setShowBlinking] = useState(true); // Estado para alternar la visibilidad de la clase
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowBlinking((prevShowBlinking) => !prevShowBlinking); // Alterna la visibilidad
+    }, 1000); // Cambia cada 1000 milisegundos (1 segundo)
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+  }, []);
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNombre(e.target.value);
@@ -65,9 +74,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
       <button type="submit" disabled={!nombre || !precio}>
         Agregar
       </button>
+      <div className={showBlinking ? 'blinking-text' : ''}>APP WEB EN DESARROLLO</div> {/* Aplica la clase si showBlinking es true */}
     </form>
   );
 };
 
 export default ProductForm;
-
