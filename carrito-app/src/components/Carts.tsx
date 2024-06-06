@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Carts.css";
 
-const cartIconUrl = 'https://i.postimg.cc/ZB7QJY93/pngwing.png';
+const cartIconUrl = 'https://i.postimg.cc/cC0GMr0D/pngwing.png';
 
 type CartProps = {
   cartTotal: number;
